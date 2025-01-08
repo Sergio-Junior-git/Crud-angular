@@ -4,6 +4,9 @@ import { MatTableModule } from '@angular/material/table';
 
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes/clientes.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbar } from '@angular/material/toolbar';
+
 
 
 
@@ -15,6 +18,9 @@ import { ClientesComponent } from './clientes/clientes.component';
     CommonModule,
     ClientesRoutingModule,
     MatTableModule,
+    MatCardModule,
+    MatToolbar,
+
   ]
 })
 export class ClientesModule { }

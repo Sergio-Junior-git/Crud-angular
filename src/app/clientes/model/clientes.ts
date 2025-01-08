@@ -1,5 +1,6 @@
+
 export interface Clientes {
-  _id: string;
+  id: number;
   name: string;
   category: string;
 
