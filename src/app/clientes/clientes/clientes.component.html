@@ -1,32 +1,31 @@
 <mat-card>
-<mat-card-content appearance="outlined" >
-  <mat-toolbar color="primary">
-    Todos Os Clientes
-  </mat-toolbar>
- <table mat-table [dataSource]="clientes">
+  <mat-card-content appearance="outlined">
+    <mat-toolbar color="primary"> Todos Os Clientes </mat-toolbar>
 
+    <div *ngIf="">
+    <table mat-table [dataSource]="clientes">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.id }}</td>
+      </ng-container>
 
-   <ng-container matColumnDef="id">
-     <th mat-header-cell *matHeaderCellDef> id </th>
-     <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
-   </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>name</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.name }}</td>
+      </ng-container>
 
-  <!-- Name Column -->
-   <ng-container matColumnDef="name">
-     <th mat-header-cell *matHeaderCellDef> name </th>
-     <td mat-cell *matCellDef="let cliente"> {{cliente.name}} </td>
-   </ng-container>
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>category</th>
+        <td mat-cell *matCellDef="let cliente">{{ cliente.category }}</td>
+      </ng-container>
 
-   <!-- Category Column -->
-   <ng-container matColumnDef="category">
-     <th mat-header-cell *matHeaderCellDef> categoria </th>
-     <td mat-cell *matCellDef="let cliente"> {{cliente.category}} </td>
-   </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+    <mat-spinner></mat-spinner>
 
-
-   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
- </table>
-
-</mat-card-content>
+  </mat-card-content>
 </mat-card>

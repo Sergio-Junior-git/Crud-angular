@@ -1,7 +1,9 @@
+import { Observable } from 'rxjs';
 import { ClientesService } from './../services/clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Clientes } from '../model/clientes';
 import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -13,15 +15,17 @@ import { MatTableModule } from '@angular/material/table';
 
 export class ClientesComponent implements OnInit {
 
-  clientes: Clientes[] = [];
+  clientes: Observable<Clientes[]>;
 
   // clientesService: ClientesService;
 
   displayedColumns = ['id', 'name', 'category'];
 
   constructor(private clientesService: ClientesService ){
+    this.clientes = this.clientesService.list();
+
     // this.clientesService = new ClientesService();
-     this.clientes = this.clientesService.list();
+    // this.clientes = this.clientesService.list()
     }
 
   ngOnInit(): void {

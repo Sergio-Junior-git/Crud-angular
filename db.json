@@ -1,0 +1,6 @@
+{
+ "clientes": [
+    {"id": "1", "name": "Silvia", "category": "Endividado"},
+    {"id": "2", "name": "Pedro", "category": "Limpo"}
+  ]
+}
