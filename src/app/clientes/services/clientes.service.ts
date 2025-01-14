@@ -10,9 +10,9 @@ import { provideHttpClient } from '@angular/common/http';
 })
 export class ClientesService {
 
-  private apiUrl = 'http://localhost:3000/clientes';
+  private readonly apiUrl='http://localhost:3000/clientes';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
   list() {
     return this.httpClient.get<Clientes[]>(this.apiUrl)

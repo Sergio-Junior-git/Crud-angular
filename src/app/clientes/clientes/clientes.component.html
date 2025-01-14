@@ -2,7 +2,7 @@
   <mat-card-content appearance="outlined">
     <mat-toolbar color="primary"> Todos Os Clientes </mat-toolbar>
 
-    <div *ngIf="">
+
     <table mat-table [dataSource]="clientes">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>id</th>
@@ -24,7 +24,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-  </div>
+
+
     <mat-spinner></mat-spinner>
 
   </mat-card-content>
