@@ -2,31 +2,34 @@
   <mat-card-content appearance="outlined">
     <mat-toolbar color="primary"> Todos Os Clientes </mat-toolbar>
 
+    <div *ngIf="clientes$ | async as clientes; else loading">
+      <table mat-table [dataSource]="clientes">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>id</th>
+          <td mat-cell *matCellDef="let cliente">{{ cliente.id }}</td>
+        </ng-container>
 
-    <table mat-table [dataSource]="clientes">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>id</th>
-        <td mat-cell *matCellDef="let cliente">{{ cliente.id }}</td>
-      </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>name</th>
+          <td mat-cell *matCellDef="let cliente">{{ cliente.name }}</td>
+        </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>name</th>
-        <td mat-cell *matCellDef="let cliente">{{ cliente.name }}</td>
-      </ng-container>
+        <!-- Category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>category</th>
+          <td mat-cell *matCellDef="let cliente">{{ cliente.category }}</td>
+        </ng-container>
 
-      <!-- Category Column -->
-      <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef>category</th>
-        <td mat-cell *matCellDef="let cliente">{{ cliente.category }}</td>
-      </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-
-    <mat-spinner></mat-spinner>
-
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
   </mat-card-content>
 </mat-card>

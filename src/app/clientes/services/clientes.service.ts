@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Clientes } from '../model/clientes';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { delay, Observable, tap } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class ClientesService {
   list() {
     return this.httpClient.get<Clientes[]>(this.apiUrl)
     .pipe(
+      delay(5000),
       tap(clientes => console.log(clientes))
     );
   }

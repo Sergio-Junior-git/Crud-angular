@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { ClientesService } from './../services/clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Clientes } from '../model/clientes';
@@ -15,14 +15,22 @@ import { CommonModule } from '@angular/common';
 
 export class ClientesComponent implements OnInit {
 
-  clientes: Observable<Clientes[]>;
+  clientes$: Observable<Clientes[]>;
 
   // clientesService: ClientesService;
 
   displayedColumns = ['id', 'name', 'category'];
 
   constructor(private clientesService: ClientesService ){
-    this.clientes = this.clientesService.list();
+    this.clientes$ = this.clientesService.list()
+    .pipe(
+      catchError(error => {
+        console.log(error);
+        return of([])
+      })
+    );
+
+
 
     // this.clientesService = new ClientesService();
     // this.clientes = this.clientesService.list()
