@@ -6,9 +6,8 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes/clientes.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbar } from '@angular/material/toolbar';
-
-
-
+import {MatIconModule} from '@angular/material/icon';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -22,6 +21,8 @@ import { MatToolbar } from '@angular/material/toolbar';
     MatCardModule,
     MatToolbar,
     MatProgressSpinnerModule,
+    MatIconModule,
+    SharedModule,
 
   ]
 })

@@ -10,14 +10,14 @@ import { provideHttpClient } from '@angular/common/http';
 })
 export class ClientesService {
 
-  private readonly apiUrl='http://localhost:3000/clientes';
+  private readonly apiUrl='http://localhost:8080/api/clientes';
 
   constructor(public httpClient: HttpClient) { }
 
   list() {
     return this.httpClient.get<Clientes[]>(this.apiUrl)
     .pipe(
-      delay(5000),
+      //delay(5000),
       tap(clientes => console.log(clientes))
     );
   }
