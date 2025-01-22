@@ -10,7 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 })
 export class ClientesService {
 
-  private readonly apiUrl='http://localhost:8080/api/clientes';
+  private readonly apiUrl='http://localhost:3000/clientes';
 
   constructor(public httpClient: HttpClient) { }
 

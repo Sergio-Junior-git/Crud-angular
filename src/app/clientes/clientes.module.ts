@@ -8,11 +8,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbar } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { SharedModule } from '../shared/shared.module';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
   declarations: [
-    ClientesComponent
+    ClientesComponent,
+    ClienteFormComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,7 @@ import { SharedModule } from '../shared/shared.module';
     MatProgressSpinnerModule,
     MatIconModule,
     SharedModule,
-
+    MatButtonModule,
   ]
 })
 export class ClientesModule { }

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Clientes } from '../model/clientes';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,9 +20,14 @@ export class ClientesComponent implements OnInit {
 
   // clientesService: ClientesService;
 
-  displayedColumns = ['id', 'name', 'category'];
+  displayedColumns = ['id', 'name', 'category', 'actions'];
 
-  constructor(private clientesService: ClientesService ){
+  constructor(
+    private clientesService: ClientesService,
+    private router: Router,
+    private route : ActivatedRoute,
+   ) {
+
     this.clientes$ = this.clientesService.list()
     .pipe(
       catchError(error => {
@@ -39,4 +45,7 @@ export class ClientesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAdd() {
+    this.router.navigate(['new'],{relativeTo: this.route});
+  }
 }
