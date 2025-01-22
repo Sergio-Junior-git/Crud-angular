@@ -6,19 +6,19 @@
 
       <table mat-table [dataSource]="clientes">
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>id</th>
+          <th mat-header-cell *matHeaderCellDef>Id</th>
           <td mat-cell *matCellDef="let cliente">{{ cliente.id }}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>name</th>
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
           <td mat-cell *matCellDef="let cliente">{{ cliente.name }}</td>
         </ng-container>
 
         <!-- Category Column -->
         <ng-container matColumnDef="category">
-          <th mat-header-cell *matHeaderCellDef>category</th>
+          <th mat-header-cell *matHeaderCellDef>Categoria</th>
           <td mat-cell *matCellDef="let cliente"> {{ cliente.category }}
             <mat-icon aria-hidden="false" aria-label="Categoria do cliente" fontIcon= '{{ cliente.category | category }}'></mat-icon>
           </td>

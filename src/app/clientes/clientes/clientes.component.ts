@@ -44,8 +44,4 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onAdd() {
-    this.router.navigate(['new'],{relativeTo: this.route});
-  }
 }
