@@ -1,6 +1,19 @@
 {
- "clientes": [
-    {"id": "1", "name": "Silvia", "category": "Endividado"},
-    {"id": "2", "name": "Pedro", "category": "Limpo"}
+  "clientes": [
+    {
+      "id": "1",
+      "name": "Silvia",
+      "category": "Endividado"
+    },
+    {
+      "id": "2",
+      "name": "Pedro",
+      "category": "Limpo"
+    },
+    {
+      "id": "1a15",
+      "name": "junior",
+      "category": "Limpo"
+    }
   ]
 }

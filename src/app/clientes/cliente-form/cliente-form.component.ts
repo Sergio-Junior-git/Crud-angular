@@ -1,3 +1,4 @@
+import { ClientesService } from './../services/clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -12,7 +13,9 @@ export class ClienteFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private service: ClientesService
+  ) {
     this.form = this.formBuilder.group({
       name: [null],
       category: [null]
@@ -25,6 +28,10 @@ export class ClienteFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('funcionou')
+    this.service.save(this.form.value).subscribe(result => console.log(result));
+  }
+
+  onCancel(){
+    console.log('cancelou')
   }
 }

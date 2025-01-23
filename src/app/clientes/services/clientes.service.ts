@@ -21,5 +21,8 @@ export class ClientesService {
       tap(clientes => console.log(clientes))
     );
   }
+  save(record: Clientes) {
+   return this.httpClient.post<Clientes>(this.apiUrl, record);
+  }
 
 }
