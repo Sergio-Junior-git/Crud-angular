@@ -23,4 +23,8 @@ export class ClienteFormComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  onSubmit(){
+    console.log('funcionou')
+  }
 }
