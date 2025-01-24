@@ -1,6 +1,9 @@
+import { Location } from '@angular/common';
 import { ClientesService } from './../services/clientes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-form',
@@ -10,8 +13,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './cliente-form.component.scss'
 })
 export class ClienteFormComponent implements OnInit {
+  private snackBar = inject(MatSnackBar);
 
   form: FormGroup;
+
 
   constructor(private formBuilder: FormBuilder,
     private service: ClientesService
@@ -28,10 +33,15 @@ export class ClienteFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.service.save(this.form.value).subscribe(result => console.log(result));
+    this.service.save(this.form.value).subscribe(result => this.onSucess());
   }
 
   onCancel(){
-    console.log('cancelou')
+
   }
+
+  private onSucess(){
+    this.snackBar.open('Cliente salvo com sucesso!', '', {duration:5000});
+  }
+
 }
